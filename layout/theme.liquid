@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ page_title }}</title>
+        <meta charset="utf-8"/>
+        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+        <meta name="description" content="{{ page_description | escape }}"/>
+        <link rel="canonical" href="{{ canonical_url }}"/>
+        <link rel="alternate" hreflang="x-default" href="{{ canonical_url | replace: shop.domain, 'hornit.com' }}" />
+        <link rel="alternate" href="{{ canonical_url | replace: shop.domain, 'hornit.com' }}" hreflang="en" />
+        <link rel="alternate" href="{{ canonical_url | replace: shop.domain, 'us.hornit.com' }}" hreflang="en-us" />
+        <link rel="alternate" href="{{ canonical_url | replace: shop.domain, 'au.hornit.com' }}" hreflang="en-au" />
+        <link rel="preload" href="https://use.typekit.net/fsp3qru.css" rel="stylesheet">
+
+        {%- comment -%}Favicon!{%- endcomment -%}
+        {% if settings.favicon != blank %}
+            <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png"/>
+        {% endif %}
+
+        <meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name="viewport"/>
+        {{
+      content_for_header
+    }}
+        <!-- Header hook for plugins -->
+        <!-- Important scss -->
+        {{ "application.css" | asset_url | stylesheet_tag }}
+
+         <!-- Yotpo -->
+        <script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/1ljhsNF1an3HVf92bF5qIpLN8IZzvfIwdxLSLsV0/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
+
+      
+      <!-- Microsoft Ads Code -->
+      <script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"17540049"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>      
+
+      <!-- Microsoft Clarity Code -->     
+      <script type="text/javascript">
+          (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "5de6ri1s3c");
+      </script>
+      
+      
+      
+      <!-- Google Ads Remarketing Tag By FeedArmy Version 2.12 START -->
+<!-- FeedArmy tutorial found at https://feedarmy.com/adding-google-adwords-remarketing-tag-to-shopify/ -->
+
+<!-- CODE SETTINGS START -->
+<!-- CODE SETTINGS START -->
+
+<!-- Please add your Google Ads Audience Source Tag ID -->
+{% assign fa_google_ads_audience_tag_id = 1002462674 %}
+
+<!-- Please add your alpha2 code, you can find it here: https://help.shopify.com/en/api/custom-storefronts/storefront-api/reference/enum/countrycode -->
+{% assign fa_product_id_alpha2_code = 'GB' %}
+
+<!-- if you have prices such as 1,000.00 set below to true, if you have prices such as 1.000,00 set below to false -->
+{% assign fa_prices_with_decimal_separator = false %}
+
+<!-- set your product id values are default, product_id, parent_id, sku-->
+{% assign fa_product_id = default %}
+
+<!-- CODE SETTINGS END -->
+<!-- CODE SETTINGS END -->
+
+<!-- ------------------------------------ -->
+<!-- DO NOT EDIT ANYTHING BELOW THIS LINE -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-59749911-3"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-59749911-3');
+</script>
+<!-- Global site tag (gtag.js) - Ads. -->
+{% if fa_prices_with_decimal_separator == true %}
+	{% if template contains 'product' %}
+		{% assign fa_product_price = product.price_min | money_without_currency | remove:',' %}
+	{% elsif template contains 'cart' %}
+		{% assign fa_product_price = cart.total_price | money_without_currency | remove:',' %}
+	{% endif %}
+{% else %}
+	{% if template contains 'product' %}
+		{% assign fa_product_price = product.price_min | money_without_currency | remove:'.' | replace: ',', '.' %}
+	{% elsif template contains 'cart' %}
+		{% assign fa_product_price = cart.total_price | money_without_currency | remove:'.' | replace: ',', '.' %}
+	{% endif %}
+{% endif %}
+{% if template contains 'collection' %}
+{% assign fa_event = 'view_item_list' %}
+{% elsif template contains 'product' %}
+{% assign fa_event = 'view_item' %}
+{% elsif template contains 'search' %}
+{% assign fa_event = 'view_search_results' %}
+{% elsif template contains 'cart' %}
+{% assign fa_event = 'add_to_cart' %}
+{% elsif template contains 'index' %}
+{% assign fa_event = 'home' %}
+{% else %}
+{% assign fa_event = 'other' %}
+{% endif %}
+
+<script>
+  gtag('event', '{{ fa_event }}', {
+    'send_to': 'AW-{{ fa_google_ads_audience_tag_id }}', 
+	{% if template contains 'product' or template contains 'cart' %}'value': {{ fa_product_price }}, {% endif %}
+	{% if template contains 'product' %}
+    'items': [{
+		{% if fa_product_id == 'default' %}
+			'id': 'shopify_{{ fa_product_id_alpha2_code }}_{{ product.id }}_{% if product.variants.first.id %}{{ product.variants.first.id }}{% else %}{{ product.variants.id }}{% endif %}',
+		{% elsif fa_product_id == 'product_id' %}
+			'id': '{% if product.variants.first.id %}{{ product.variants.first.id }}{% else %}{{ product.variants.id }}{% endif %}',
+		{% elsif fa_product_id == 'parent_id' %}
+			'id': '{{ product.id }}',
+		{% elsif fa_product_id == 'sku' %}
+			'id': '{% if product.variants.first.id %}{{ product.variants.first.sku }}{% else %}{{ product.variants.sku }}{% endif %}',
+		{% endif %}
+      'google_business_vertical': 'retail'
+    }]
+	{% elsif template contains 'cart' %}
+	'items': [
+	{% for item in cart.items %}
+	{
+		{% if fa_product_id == 'default' %}
+			'id': 'shopify_{{ fa_product_id_alpha2_code }}_{{ item.product_id }}_{{ item.variant_id }}',
+		{% elsif fa_product_id == 'product_id' %}
+			'id': '{{ item.variant_id }}',
+		{% elsif fa_product_id == 'parent_id' %}
+			'id': '{{ item.product_id }}',
+		{% elsif fa_product_id == 'sku' %}
+			'id': '{{ item.sku }}',
+		{% endif %}
+      'google_business_vertical': 'retail'
+    },
+	{% endfor %}
+	]
+	{% endif %}
+  });
+</script>
+
+<!-- Google Ads Remarketing Tag By FeedArmy Version 2.12 END -->
+      
+
+    </head>
+    <body>
+        {% include "header" %}
+
+        <main role="main">
+            <!-- <div class="page-cover"></div> -->
+
+            {{ content_for_layout }}
+            {% include "footer" %}
+        </main>
+
+        {% comment %}
+			makes the page fade when mini-cart is open
+		{% endcomment %}
+
+        <div id="no-click"></div>
+        {% comment %}
+			lazy load
+    {% endcomment %}
+    <script async src="{{ 'lazysizes.min.js' | asset_url }}"></script>
+
+    {% render 'preorder-now' %}
+
+
+
+       {% comment %}  {{ "lazysizes.min.js" | asset_url | script_tag }} {% endcomment %}
+
+       {{ "jquery-3.3.1.min.js" | asset_url | script_tag }}
+ 
+
+
+
+
+
+        {% comment %}
+			if we have multiple currencies engaged enqueue scripts below
+		{% endcomment %}
+        {% if settings.show_multiple_currencies %}
+            {{ "//cdn.shopify.com/s/javascripts/currencies.js" | script_tag }}
+            {{ "jquery.currencies.min.js" | asset_url | script_tag }}
+        {% endif %}
+        {% include 'currencies' %}
+
+                {%- comment -%}quikcview{%- endcomment -%}
+
+
+       
+
+
+        {{ "player.min.js" | asset_url | script_tag }}
+        {{ "video.js" | asset_url | script_tag }}
+
+        {{ "slick.min.js" | asset_url | script_tag }}
+        {{ "slideshow-dist.js" | asset_url | script_tag }}
+        {{ "search-dist.js" | asset_url | script_tag }}
+        {{ "currency-picker.js" | asset_url | script_tag }}
+        {{ "//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js" | script_tag }}
+        {{ '//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css' | stylesheet_tag }}
+        {{ "application.js" | asset_url | script_tag }}
+        {{ "drag-scroll.js" | asset_url | script_tag }}
+        
+
+        {{ "animation-dist.js" | asset_url | script_tag }}
+        {{ "header-dist.js" | asset_url | script_tag }}
+
+        {% if template contains 'product' %}
+            {{ "bbplayer-dist.js" | asset_url | script_tag }}
+        {% endif %}
+
+        <script>
+          {% capture content %}{% include 'quickview' %}{% endcapture %}
+          var content = {{ content | json }};
+        </script>
+
+
+
+
+
+
+
+  
+{% include 'swymSnippet' %}
+
+{%- comment -%}
+
+{{ "popup.js" | asset_url | script_tag }}
+
+{%- endcomment -%}
+
+  <script>window.KlarnaThemeGlobals={};{%case template.name%} {%when"product"%} window.KlarnaThemeGlobals.data_purchase_amount={{product.first_available_variant.price}};window.KlarnaThemeGlobals.productVariants={{product.variants|json}};window.KlarnaThemeGlobals.documentCopy=document.cloneNode(true);{%when"cart"%} window.KlarnaThemeGlobals.data_purchase_amount={{cart.total_price}};window.KlarnaThemeGlobals.documentCopy=document.cloneNode(true);{%endcase%}</script>
+</body>
+</html>

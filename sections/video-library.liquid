@@ -1,0 +1,97 @@
+{% schema %}
+
+{
+    "name": "Video Library",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title_top",
+            "label": "Heading",
+            "default": "Custom content"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "video",
+            "name": "Video",
+            "settings": [
+                {
+                    "id": "video_id",
+                    "type": "text",
+                    "label": "Video ID",
+                    "placeholder": "Video ID to link to section"
+                }, {
+                    "id": "video_title",
+                    "type": "text",
+                    "label": "Title",
+                    "placeholder": "Video Title"
+                }, {
+                    "id": "video_desc",
+                    "type": "textarea",
+                    "label": "Text Description"
+                }, {
+                    "id": "video_url",
+                    "type": "video_url",
+                    "label": "Video URL",
+                    "accept": [
+                        "youtube",
+                        "vimeo"
+                    ],
+                    "default": "https://youtu.be/o0HGtxPc454",
+                    "info": "Text",
+                    "placeholder": "Add your video link here"
+                }
+            ]
+        }
+    ]
+}
+
+{% endschema %}
+
+
+<div class="master-collection-full">
+
+
+    <div class="no-header_content">
+        <h3 class="uppercase">{{ page.title }}</h3>
+    </div>
+
+
+    <div class="video-library-grid">
+
+        {% for block in section.blocks %}
+
+
+            {% case block.type %}
+
+
+                {% when 'video' %}
+
+
+                    <section class="video-library-section" id='{{ block.settings.video_id }}'>
+                        <div class="video-inner">
+
+
+                            <div class="video-library-item">
+                                <iframe data-src="{{ block.settings.video_url }}?loop=1&autopause=0" class="lazyload" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            </div>
+
+                            <div class="title-section">
+                                <h5 class="uppercase">{{ block.settings.video_title }}</h5>
+                                <p class="p-fade">{{ block.settings.video_desc }}
+                                </p>
+                            </div>
+
+
+                        </div>
+                    </section>
+
+
+            {% endcase %}
+
+
+        {% endfor %}
+
+    </div>
+
+</div>

@@ -1,0 +1,175 @@
+<div class="product-card">
+
+        {% if product.featured_image %}
+        <div class="card-image">
+
+            <div class="reveal">
+
+                {% if product.images.size > 1 %}
+
+                <img data-src="{{ product.featured_image.src | img_url: '1000x1000', crop: 'center' }}"
+                    alt="{{ product.featured_image.alt | escape }}" class="lazyload">
+
+                <div class="hidden">
+                    <img data-src="{{ product.images.last | img_url: '1000x1000', crop: 'center' }}"
+                        alt="{{ product.images.last.alt | escape }}" class="lazyload" />
+                </div>
+
+                {% else %}
+
+                <img data-src="{{ product.featured_image.src | img_url: '1000x1000', crop: 'center' }}"
+                    alt="{{ product.featured_image.alt | escape }}" class="lazyload">
+
+                {% endif %}
+            </div>
+
+
+            <div class="quick-view-button"><a class="quick-view black-button" data-handle="{{ product.handle }}" href="javascript:void(0);">Quick View</a></div>
+
+        </div>
+        {% endif %}
+
+        <a class="link-to-product" href="{{ product.url | within: collection }}">
+
+        <div class="card-info">
+            <div class="card-info-top">
+                <div class="product-title">
+                    <p class="uppercase black font-bolder">{{ product.title }}</p>
+                  
+                  
+<div style="text-align: center">
+   <div class="yotpo bottomLine" style="display:inline-block"
+      data-product-id="{{ product.id }}">
+{%- assign yotpo_offload_content = shop.metafields.yotpo.yotpo_offload_content %}
+{%- assign time_now = 'now' | date: '%s' %}
+{%- assign yotpo_live_time = shop.metafields.yotpo.yotpo_live | date: '%s' %}
+{%- assign diff_seconds_from_live = time_now | minus: yotpo_live_time %}
+{%- assign yotpo_bottomline_last_updated = product.metafields.yotpo.catalog_bottomline_update_time | date: '%s' %}
+{%- assign diff_seconds_from_last_bottomline_update = time_now | minus: yotpo_bottomline_last_updated %}
+{%- if yotpo_live_time and diff_seconds_from_live < 86400 or yotpo_bottomline_last_updated and diff_seconds_from_last_bottomline_update < 86400 -%}
+  {%- assign yotpo_bottomline_obsolete = false %}
+{%- else %}
+  {%- assign yotpo_bottomline_obsolete = true %}
+{%- endif %}
+{%- if yotpo_offload_content == 'yes' and yotpo_bottomline_obsolete != true -%}
+  {{ product.metafields.yotpo.catalog_bottomline }}
+{%- endif %}
+</div>
+      </div>
+
+
+                    {% if product.available %}
+
+
+
+                    {% if product.handle contains 'helmet' %}
+
+                    {% if product.options.size == 1 and product.variants.size == 1 %}
+
+
+                    <p class="small-p">
+                        {{ 'product.card.sizes_styles_singular' | t: optionCount: product.options.size, styleCount: product.variants.size }}
+                    </p>
+
+                    {% elsif product.options.size > 1 and product.variants.size > 1 %}
+
+                    <p class="small-p">
+                        {{ 'product.card.sizes_styles_plural' | t: optionCount: product.options.size, styleCount: product.variants.size }}
+                    </p>
+
+                    {% else %}
+
+                    <p class="small-p">
+                        {{'product.card.sizes_styles' | t:  optionCount: product.options.size, styleCount: product.variants.size }}
+                    </p>
+
+                    {% endif %}
+
+                    {% else %}
+
+                    {% if product.options.size == 1 and product.variants.size == 1 %}
+
+
+                    <p class="small-p">
+                        {{ 'product.card.options_styles_singular' | t: optionCount: product.options.size, styleCount: product.variants.size }}
+                    </p>
+
+                    {% elsif product.options.size > 1 and product.variants.size > 1 %}
+
+                    <p class="small-p">
+                        {{ 'product.card.options_styles_plural' | t: optionCount: product.options.size, styleCount: product.variants.size }}
+                    </p>
+
+                    {% else %}
+
+                    <p class="small-p">
+                        {{'product.card.option_styles' | t:  optionCount: product.options.size, styleCount: product.variants.size }}
+                    </p>
+
+                    {% endif %}
+
+                    {% endif %}
+
+                    {% else %}
+                    <p class="small-p">{{ 'product.form.sold_out' | t }}</p>
+                    {% endif %}
+
+                </div>
+
+
+
+              
+                {%- assign compare_at_price = product.compare_at_price -%}
+                {%- assign price = product.price -%}
+                {%- assign price_varies = product.price_varies -%}
+                {%- assign available = product.available -%}
+
+              {%- assign money_price = price | money -%}
+
+                {%- comment -%} 
+                <div class="product-price">
+                     {{ product.price | money }}
+                </div>
+                {%- endcomment -%}
+
+                
+<div class="product-price-box">
+
+   
+
+    {% if compare_at_price > price %}
+    {% if price_varies %}
+        <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+        <div class="product-price-sale">{{ compare_at_price | money }}</div>
+        <span class="product-price__price product-price__sale">
+        <div class="product-price">{{ money_price }}</div>
+      {%- comment -%}  <span class="product-price__sale-label">{{ 'products.product.on_sale' | t }}</span>{%- endcomment -%}
+        </span>
+    {% else %}
+        <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+        <div class="product-price-sale">{{ compare_at_price | money }}</div>
+        <span class="product-price__price product-price__sale">
+            <div class="product-price">{{ money_price }}</div>
+        {%- comment -%}  <span class="product-price__sale-label">{{ 'products.product.on_sale' | t }}</span>{%- endcomment -%}
+        </span>
+    {% endif %}
+    {% else %}
+
+    {% if price_varies %}
+         <div class="product-price-sale">{{ money_price }}</div>
+    {% else %}
+        <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+         <div class="product-price">{{ money_price }}</div>
+    {% endif %}
+{% endif %}
+</div>
+               
+
+
+
+
+            </div>
+
+        </div>
+    </a>
+{% render 'preorder-now-collection-item', product: product %}</div>

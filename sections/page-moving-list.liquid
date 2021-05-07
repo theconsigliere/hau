@@ -1,0 +1,106 @@
+{% schema %}
+
+{
+    "name": "Title Section",
+    "class": "page-title-section",
+    "blocks": [
+        {
+            "type": "title",
+            "name": "Cyclist Section",
+            "settings": [
+                {
+                    "id": "title",
+                    "type": "text",
+                    "label": "Title",
+                    "placeholder": "Page Title"
+                }, {
+                    "id": "desc",
+                    "type": "text",
+                    "label": "Description",
+                    "placeholder": "Description"
+                }, {
+                    "id": "link",
+                    "type": "url",
+                    "label": "Page Link"
+                }, {
+                    "id": "linktitle",
+                    "type": "text",
+                    "label": "Page Link Title",
+                    "placeholder": "Name the page you'd like to show"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "category": "content",
+            "name": "Moving List Section"
+        }
+    ]
+}
+
+{% endschema %}
+
+<section>
+
+    {% for block in section.blocks %}
+
+        <div class="title-section cycle-title">
+            <h3 class="uppercase">{{ block.settings.title }}</h3>
+
+            <p>{{ block.settings.desc}}</p>
+        </div>
+
+        {% if block.settings.link != blank %}
+            <div class="reel">
+
+                <div class="cycle_list">
+
+                    <div class="cycle_parent_link">
+
+                        {% comment %}
+						Creates new variable called navList, which grabs linklist object for the link list we need, let us define handle variable on the include tag ie in header.liquid or footer footer.liquid
+					{% endcomment %}
+                        <span>
+                            <a href="{{ block.settings.link }}" target="new" class="cycle_text_link">
+                                {{ block.settings.linktitle }}
+                            </a>
+                        </span>
+                        <span>
+                            <a href="{{ block.settings.link }}" target="new" class="cycle_text_link">
+                                {{ block.settings.linktitle }}
+                            </a>
+                        </span>
+                        <span>
+                            <a href="{{ block.settings.link }}" target="new" class="cycle_text_link">
+                                {{ block.settings.linktitle }}
+                            </a>
+                        </span>
+                        <span>
+                            <a href="{{ block.settings.link }}" target="new" class="cycle_text_link">
+                                {{ block.settings.linktitle }}
+                            </a>
+                        </span>
+                        <span>
+                            <a href="{{ block.settings.link }}" target="new" class="cycle_text_link">
+                                {{ block.settings.linktitle }}
+                            </a>
+                        </span>
+                        <span>
+                            <a href="{{ block.settings.link }}" target="new" class="cycle_text_link">
+                                {{ block.settings.linktitle }}
+                            </a>
+                        </span>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        {% endif %}
+
+    {% endfor %}
+
+</section>

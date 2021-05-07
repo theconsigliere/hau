@@ -1,0 +1,42 @@
+    {%- comment -%}Crosselling section {%- endcomment -%}
+
+
+    {% assign heading = 'You may also like' %}
+    {% assign limit = 6 %}
+
+    <div class="crosselling-section" data-base-url="{{ routes.product_recommendations_url }}" data-product-id="{{ product.id }}" data-limit="{{ limit }}" data-section-id="{{ section.id }}" data-section-type="crosselling-section">
+      
+      
+       
+        {% if recommendations.products_count > 0 %}
+
+        <div class="collection-list-wrap wrapper">
+            <h5 class='uppercase'>{{ heading }}</h5>
+
+            <div class="collection-list">
+                <div class="collection-block-info">
+                    <div class="collection-products">
+                        {% for product in recommendations.products %}
+                        {% include 'product-card' %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        {% endif %}
+     
+    </div>
+
+
+
+
+
+
+
+
+
+       {%- comment -%}End Crosselling section {%- endcomment -%}

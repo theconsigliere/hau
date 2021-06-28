@@ -75,6 +75,9 @@
                         }, {
                             "value": "klarna",
                             "label": "klarna Logo"
+                        }, {
+                            "value": "afterpay",
+                            "label": "Afterpay Logo"
                         }
                     ],
                     "label": "Select Product Logos"
@@ -222,6 +225,8 @@
                                 <img data-src="{{ 'black-friday.svg' | asset_url }}" alt="Black Friday Logo" class="black-friday lazyload"/>
                             {% when 'klarna' %}
                                 <img data-src="{{ 'klarna.svg' | asset_url }}" alt="klarna" class="helmet-product-logo lazyload"/>
+                            {% when 'afterpay' %}
+                                <img data-src="{{ 'afterpay.svg' | asset_url }}" alt="afterpay" class="helmet-product-logo lazyload"/>
                             
                         {% endcase %}
 

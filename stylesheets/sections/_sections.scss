@@ -122,7 +122,7 @@
     padding: 60px 40px;
     left: 0;
     right: 0;
-    background: rgb(0,0,0);
+    background: rgb(0, 0, 0);
     background: linear-gradient(0deg, $black 0%, #24272c00 100%);
 
 
@@ -138,7 +138,7 @@
 
 
     }
-    
+
     // @media (min-width: #{$screen-xl}) {
     //   width: 70%;
     // }
@@ -1122,6 +1122,149 @@
 // STORE SELECTOR
 //--------------------------------------------
 
+
+/* Mulitple Store dropdown */
+.dropbtn {
+  background-color: #ffd300;
+  color: #24272c;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  text-transform: uppercase !important;
+  transition: all 0.3s ease-in-out;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  padding: 8% 5%;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #525861;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  position: absolute;
+  top: 100%;
+  background-color: #24272c;
+}
+
+.no-touch .dropdown:hover .dropdown-content {
+  z-index: 99;
+  display: block;
+}
+
+.store p {
+  width: 50%;
+  text-align: center;
+}
+
+
+.dropdown:hover .dropbtn {
+  background-color: #fff;
+  color: #24272c;
+
+}
+
+.multiple-stores {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+@media (max-width: 991px) {
+  .multiple-stores {
+    margin-bottom: 50vh;
+  }
+}
+
+.multiple-stores .store-item .store {
+  border: 1px solid #ffffff;
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 0 5px;
+}
+
+.multiple-stores .store-item .store p,
+.multiple-stores .store-item .store .quantity-picker button,
+.quantity-picker .multiple-stores .store-item .store button {
+  color: #ffffff;
+  padding: 0 5px;
+  margin: 0;
+}
+
+.multiple-stores .store-item .store .store-flag {
+  max-width: 50%;
+  height: 100%;
+  padding: 2px;
+  display: flex;
+}
+
+.multiple-stores .store-item .store .store-flag img {
+  object-fit: cover;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.store.active-store {
+  background: #ffffff;
+}
+
+.store.active-store p,
+.store.active-store .quantity-picker button,
+.quantity-picker .store.active-store button {
+  color: #24272c !important;
+}
+
+.header-store-selector {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .header-store-selector {
+    display: block;
+  }
+}
+
+.mobile-store-selector {
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 2vh;
+}
+
+@media (min-width: 992px) {
+  .mobile-store-selector {
+    display: none;
+  }
+}
+
+
 .multiple-stores {
   @include space-between;
 
@@ -1187,7 +1330,7 @@
 
 section.confidence-banner {
   background: $black;
-  
+
 
   .confid-inner {
     max-width: 90%;
@@ -1204,7 +1347,7 @@ section.confidence-banner {
 
     @media (min-width: #{$screen-xl}) {
       max-width: 80%;
-     
+
     }
 
 
@@ -1266,8 +1409,8 @@ section.confidence-banner {
       text-align: center;
 
       @media (min-width: #{$screen-lg}) {
-       width: fit-content;
-       margin: 0;
+        width: fit-content;
+        margin: 0;
       }
 
     }
@@ -1291,7 +1434,7 @@ section.confidence-banner {
 
       &:hover {
         background: $black;
-       
+
 
         p {
           color: $white;

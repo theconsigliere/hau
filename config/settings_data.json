@@ -682,7 +682,7 @@
               "second_image": "shopify:\/\/shop_images\/kidsx.jpg",
               "second_color_text": "second-white-text",
               "second_title": "Horns & Lights",
-              "second_url": "https:\/\/au.hornit.com\/collections\/horns-lights",
+              "second_url": "shopify:\/\/collections\/kids-horns-lights",
               "second_text": "shop now",
               "third_title": "Shop Kids",
               "third_url": "shopify:\/\/collections\/kids",
@@ -888,8 +888,7 @@
               "hashtag": "From the road to the gram, we want to see your Hornit accessories in action. Share your snaps using #Hornit.",
               "insta_button_url": "https:\/\/www.instagram.com\/thehornit\/",
               "insta_button_text": "Follow Hornit",
-              "kids_insta_button_url": "https:\/\/www.instagram.com\/minihornit\/",
-              "kids_insta_button_text": "Follow Mini Hornit",
+              "kids_insta_button_text": "",
               "insta_image_two": "shopify:\/\/shop_images\/mini-hor.jpg"
             }
           }
@@ -1126,7 +1125,7 @@
             "type": "cyclist-block",
             "settings": {
               "cyclist_color": "#ffffff",
-              "cyclist_image": "shopify:\/\/shop_images\/fsd.jpg",
+              "cyclist_image": "shopify:\/\/shop_images\/new.jpg",
               "cyclist_title": "Leisure Rider",
               "cyclist_content": "The coolest accessories for you and families cycling adventures. The kids will love our stylish and fun helmets, lights and horns and us adults will no longer have to worry about storage with the ingenious CLUG. Everyone’s happy!",
               "collection": "leisure-biker",
@@ -1178,11 +1177,11 @@
               "faq_question_2": "Why haven’t I received an order confirmation?",
               "faq_desc_2": "<p>Every order receives an auto-confirmation. Please double-check your junk\/spam folder as they all too frequently end up in there. If you still can’t find it, <a href=\"\/pages\/contact-us\" title=\"Contact Us\">contact us<\/a> and we will resend another one.<\/p>",
               "faq_question_3": "How long does it take to send?",
-              "faq_desc_3": "<p>Orders received before 11am AU time will be sent out the same day. Orders received after 11am AU time will be sent out the next working day. AIRO balance bikes are sent next day delivery and all other products are sent standard AU delivery which takes 2-5 days (3-5 days during busy period). Please note we do not pick or send orders over the weekend.<\/p>",
+              "faq_desc_3": "<p>Orders received before 11am AU time will be sent out the same day. Orders received after 11am AU time will be sent out the next working day. All products are sent using standard AU delivery with delivery varying according to your location. 2-3 days (New South Wales, Victoria and Queensland), 4 days (Northern Territory, and Tasmania), 5-7 days (Western Australia). Please note we do not pick or send orders over the weekend.<\/p>",
               "faq_question_4": "Where does Hornit ship from?",
-              "faq_desc_4": "<p>We ship all orders from our warehouse in AU.<\/p>",
+              "faq_desc_4": "<p>We ship all orders from our Sydney Metro Warehouse.<\/p>",
               "faq_question_5": "I haven’t received tracking?",
-              "faq_desc_5": "<p>UK Tracking will come from Diamond Logistics based in Plymouth. You should receive tracking from them. Please check your junk folder if your email security settings are high. If you haven&#x27;t received an email from Diamond Logistics please email info@thehornit.com and we will be able to help.<\/p>",
+              "faq_desc_5": "<p>After placing your order you will be emailed and sent tracking details (if you leave a mobile number). Please check your junk folder if your email security settings are high. If you haven&#x27;t received an email or text message regarding your order, please email australia@thehornit.com and we will be able to help.<\/p>",
               "faq_question_6": "",
               "faq_desc_6": "",
               "faq_question_7": "",
@@ -1808,10 +1807,10 @@
             "type": "about-section",
             "settings": {
               "image_selector": "shopify:\/\/shop_images\/Tom_bike.jpeg",
-              "textareaone": "Hornit was founded by former lawyer and Ironman triathlete, Tom de Pelet. Tom spent 7 years commuting to work in London and saw a gap in the market for innovative cycling products. When the brand launched in 2012, the objective was to create pioneering accessories that make cycling safer without compromising style. The first product to launch was the dB140 - the world’s loudest bike horn. The horn enables cyclists to alert distracted drivers and pedestrians to their presence and the sleek design means is blends seamlessly with any bike.",
-              "textareatwo": "Since the success of this product, the team at Hornit has dedicated itself to sourcing and designing innovative, stylish and fun cycling products for people of all ages. From lights and horns to cycle storage and helmets, each and every Hornit product has been created to improve cyclists lives in some way.",
-              "textareathree": "Now an established brand, Hornit has won several awards and its products are sold in over 40 countries worldwide. Innovation still remains at the heart of Hornit and Tom’s passion is shared by the whole team who make it their goal to create cycling products that transform your ride.",
-              "textareafour": "We love to hear from our customers (especially if you have any great new product ideas!) so please do feel free to get in touch via info@thehornit.com",
+              "textareaone": "When the brand launched in 2012, the objective was to create pioneering accessories that make cycling safer without compromising style. The first product to launch was the dB140 - the world’s loudest bike horn. The horn enables cyclists to alert distracted drivers and pedestrians to their presence and the sleek design means is blends seamlessly with any bike.",
+              "textareatwo": "Since the success of Hornit in the UK, husband and wife, Luke and Cathy Callen have brought Hornit to Australia. From lights and horns to balance bikes and helmets, each and every product has been created to improve cyclists lives in some way.",
+              "textareathree": "Now an established brand, Hornit has won several awards and its products are sold in over 40 countries worldwide. Innovation still remains at the heart of Hornit and is shared by the whole team who make it their goal to create cycling products that transform your ride.",
+              "textareafour": "",
               "contact_button_url": "shopify:\/\/pages\/contact-us",
               "contact_button_text": "Contact Us"
             }
@@ -1828,7 +1827,7 @@
           "1602753144903": {
             "type": "blog-article-item",
             "settings": {
-              "featured_article": "news\/bike-safety-for-kids"
+              "featured_article": "news\/how-do-i-find-out-my-kids-helmet-size"
             }
           }
         },
@@ -1933,22 +1932,22 @@
               "clug_cat_desc": "Lighter than all 23 comparable competitors. We searched long and hard for a lighter balance bike and the only ones \nwe found were made with plastic wheels and uncomfortable foam tyres. \n\nNot all balance bikes are created equal.",
               "clug_cat_image_1": "shopify:\/\/shop_images\/hornit-airo-white-bike.png",
               "clug_cat_title_1": "Hornit Airo - Orca White",
-              "clug_cat_desc_1": "$119",
+              "clug_cat_desc_1": "$249",
               "clug_cat_button_url_1": "shopify:\/\/products\/hornit-airo-orca-white",
               "clug_cat_button_text_1": "Shop now",
               "clug_cat_image_2": "shopify:\/\/shop_images\/hornit-airo-red-bike.jpg",
               "clug_cat_title_2": "Hornit Airo - Hot Chilli Red",
-              "clug_cat_desc_2": "$119",
+              "clug_cat_desc_2": "$249",
               "clug_cat_button_url_2": "shopify:\/\/products\/hornit-airo-hot-chilli-red",
               "clug_cat_button_text_2": "Shop now",
               "clug_cat_image_3": "shopify:\/\/shop_images\/hornit-airo-yellow-bike.png",
               "clug_cat_title_3": "Hornit Airo - Hammer Yellow",
-              "clug_cat_desc_3": "$119",
+              "clug_cat_desc_3": "$249",
               "clug_cat_button_url_3": "shopify:\/\/products\/hornit-airo-hammer-yellow",
               "clug_cat_button_text_3": "Shop now",
               "clug_cat_image_4": "shopify:\/\/shop_images\/hornit-airo-pink-bike.png",
               "clug_cat_title_4": "Hornit Airo - Candy Floss Pink",
-              "clug_cat_desc_4": "$119",
+              "clug_cat_desc_4": "$249",
               "clug_cat_button_url_4": "shopify:\/\/products\/hornit-airo-candy-floss-pink",
               "clug_cat_button_text_4": "Shop now"
             }
@@ -2388,10 +2387,9 @@
       "klarna-footer": {
         "type": "klarna-footer",
         "settings": {
-          "show_klarna": false,
-          "klarna_title": "Pay later with Klarna",
-          "button_url": "shopify:\/\/pages\/klarna-faqs",
-          "button_text": "Check our FAQs"
+          "show_klarna": true,
+          "klarna_title": "Pay later with Afterpay",
+          "button_text": ""
         }
       }
     },
